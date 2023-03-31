@@ -13,12 +13,12 @@ return new class extends Migration
   {
     Schema::create('jogadores', function (Blueprint $table) {
       $table->id();
-      $table->boolean('admin');
+      $table->boolean('admin')->default(false);
       $table->string('nome');
       $table->string('email');
       $table->string('senha');
       $table->date('dataNasc');
-      $table->string('descricao');
+      $table->string('bio');
       $table->string('urlFoto');
       $table->time('horarioInicio');
       $table->time('horarioFim');

@@ -50,6 +50,11 @@
   @else
   <p>jogadores não encontrados! </p>
   @endif
+  <div>
+    <a href="/jogador">
+      <button>Criar</button>
+    </a>
+  </div>
 </body>
 
 </html>

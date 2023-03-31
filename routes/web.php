@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
-
-Route::get('jogador',[JogadorController::class,'index']);
+Route::get('jogadores',[JogadorController::class,'index']);
 Route::get('jogador/{id}',[JogadorController::class,'show']);
+
+Route::get('jogador', [JogadorController::class,'create']);
+Route::post('jogador', [JogadorController::class,'store']);
 
 Route::get('jogo',[JogoController::class,'index']);
 Route::get('jogo/{id}',[JogoController::class,'show']);
