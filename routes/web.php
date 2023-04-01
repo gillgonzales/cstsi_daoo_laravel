@@ -36,3 +36,6 @@ Route::post('jogo', [JogoController::class,'store']);
 
 Route::get('jogo/{id}/edit', [JogoController::class, 'edit'])->name('jogo.edit');
 Route::post('jogo/{id}/update', [JogoController::class, 'update'])->name('jogo.update');
+
+Route::get('jogo/{id}/delete', [JogoController::class, 'delete'])->name('jogo.delete');
+Route::post('jogo/{id}/remove', [JogoController::class, 'remove'])->name('jogo.remove');

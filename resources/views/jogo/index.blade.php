@@ -34,6 +34,11 @@
             <button>Editar</button>
           </a>
         </td>
+        <td>
+          <a href="{{ route('jogo.delete',$jogo->id) }}">
+            <button>Deletar</button>
+          </a>
+        </td>
       </tr>
       @endforeach
     </tbody>

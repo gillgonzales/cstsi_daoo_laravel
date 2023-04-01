@@ -44,7 +44,7 @@
   @else
   <p>jogo não encontrado! </p>
   @endif
-  <a href="/jogador/">
+  <a href="/jogadores/">
     Voltar
   </a>
 </body>

@@ -30,7 +30,7 @@
   @else
   <p>jogo não encontrado! </p>
   @endif
-  <a href="/jogo/">
+  <a href="/jogos/">
     Voltar
   </a>
 </body>

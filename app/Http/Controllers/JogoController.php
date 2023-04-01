@@ -53,4 +53,18 @@ class JogoController extends Controller
       dd("Error ao atualizar dados do Jogo!!");
     return redirect('/jogos');
   }
+
+  public function delete($id)
+  {
+    return view('jogo.delete', ['jogo' => Jogo::find($id)]);
+  }
+
+  public function remove(Request $request, $id)
+  {
+    if ($request->has('confirmar'))
+      if (!jogo::destroy($id))
+        dd("Error ao deletar jogo!!");
+
+    return redirect('/jogos');
+  }
 }
