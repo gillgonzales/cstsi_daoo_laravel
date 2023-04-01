@@ -36,6 +36,11 @@
   @else
   <p>Jogos não encontrados! </p>
   @endif
+  <div>
+    <a href="/jogo">
+      <button>Criar</button>
+    </a>
+  </div>
 </body>
 
 </html>

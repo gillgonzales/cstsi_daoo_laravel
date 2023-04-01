@@ -45,7 +45,7 @@
         <td colspan="2"><input type="submit" value="Criar" /></td>
       </tr>
       <tr align="center">
-        <td colspan="2"><a href="/produtos" style="display: inline">&#9664;&nbsp;Voltar</a></td>
+        <td colspan="2"><a href="/jogadores" style="display: inline">&#9664;&nbsp;Voltar</a></td>
       </tr>
     </table>
   </form>

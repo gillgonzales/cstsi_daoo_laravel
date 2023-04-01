@@ -26,7 +26,7 @@ class JogadorController extends Controller
 
   public function create()
   {
-    return view('jogador.create');
+    return view('jogo.create');
   }
 
   public function store(Request $request)
@@ -35,9 +35,9 @@ class JogadorController extends Controller
     $newJogador['admin'] = $request->has('admin');
     $newJogador['urlFoto'] = $newJogador['nome'] . '.png';
 
-    if (!Jogador::create($newJogador)) {
+    if (!Jogador::create($newJogador)) 
       dd("Error ao criar jogador!!");
-    }
+
     return redirect('/jogadores');
   }
 
