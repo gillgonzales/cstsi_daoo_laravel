@@ -44,6 +44,11 @@
         <td>{{$jogador->horarioInicio}}</td>
         <td>{{$jogador->horarioFim}}</td>
         <td>
+          <a href="{{ route('jogador.edit',$jogador->id) }}">
+            <button>Editar</button>
+          </a>
+        </td>
+        <td>
           <a href="{{ route('jogador.delete',$jogador->id) }}">
             <button>Deletar</button>
           </a>

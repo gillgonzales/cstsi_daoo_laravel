@@ -33,7 +33,7 @@ class JogadorController extends Controller
   {
     $newJogador = $request->all();
     $newJogador['admin'] = $request->has('admin');
-    $newJogador['urlFoto'] = $newJogador['nome'].'.png';
+    $newJogador['urlFoto'] = $newJogador['nome'] . '.png';
 
     if (!Jogador::create($newJogador)) {
       dd("Error ao criar jogador!!");
@@ -41,14 +41,29 @@ class JogadorController extends Controller
     return redirect('/jogadores');
   }
 
+  public function edit($id)
+  {
+    return view('jogador.edit', [
+      'jogador' => Jogador::find($id)
+    ]);
+  }
+
+  public function update(Request $request, $id)
+  {
+    $newJogador = $request->all();
+    if (!Jogador::find($id)->update($newJogador)) 
+      dd("Error ao atualizar dados do Jogador!!");
+    return redirect('/jogadores');
+  }
+
   public function delete($id)
   {
-    return view('jogador.delete',['jogador'=>Jogador::find($id)]);
+    return view('jogador.delete', ['jogador' => Jogador::find($id)]);
   }
 
   public function remove(Request $request, $id)
   {
-    if($request->has('confirmar'))
+    if ($request->has('confirmar'))
       if (!Jogador::destroy($id))
         dd("Error ao deletar jogador!!");
 
