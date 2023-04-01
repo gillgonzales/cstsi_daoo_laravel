@@ -43,14 +43,13 @@ class JogadorController extends Controller
 
   public function edit($id)
   {
-    return view('jogador.edit', [
-      'jogador' => Jogador::find($id)
-    ]);
+    return view('jogador.edit', ['jogador' => Jogador::find($id)]);
   }
 
   public function update(Request $request, $id)
   {
     $newJogador = $request->all();
+    $newJogador['urlFoto'] = $newJogador['nome'] . '.png';
     if (!Jogador::find($id)->update($newJogador)) 
       dd("Error ao atualizar dados do Jogador!!");
     return redirect('/jogadores');

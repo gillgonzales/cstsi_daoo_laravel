@@ -36,7 +36,21 @@ class JogoController extends Controller
 
     if (!Jogo::create($newJogo)) 
       dd("Error ao criar jogo!!");
-      
+
+    return redirect('/jogos');
+  }
+
+  public function edit($id)
+  {
+    return view('jogo.edit', ['jogo' => Jogo::find($id)]);
+  }
+
+  public function update(Request $request, $id)
+  {
+    $newJogo = $request->all();
+    $newJogo['urlFoto'] = $newJogo['nome'] . '.png';
+    if (!Jogo::find($id)->update($newJogo)) 
+      dd("Error ao atualizar dados do Jogo!!");
     return redirect('/jogos');
   }
 }

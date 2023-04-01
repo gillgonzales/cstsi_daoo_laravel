@@ -44,7 +44,7 @@
       <tr align="center">
         <td colspan="2">
           <input type="submit" value="Salvar" />
-          <a href="/produtos">
+          <a href="/jogadores">
             <button form=cancel>Cancelar</button>
           </a>
         </td>

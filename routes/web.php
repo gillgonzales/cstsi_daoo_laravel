@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Jogador routes
 Route::get('jogadores',[JogadorController::class,'index']);
 Route::get('jogador/{id}',[JogadorController::class,'show']);
 
@@ -27,8 +27,12 @@ Route::post('jogador/{id}/update', [JogadorController::class, 'update'])->name('
 Route::get('jogador/{id}/delete', [JogadorController::class, 'delete'])->name('jogador.delete');
 Route::post('jogador/{id}/remove', [JogadorController::class, 'remove'])->name('jogador.remove');
 
+// Jogo routes
 Route::get('jogos',[JogoController::class,'index']);
 Route::get('jogo/{id}',[JogoController::class,'show']);
 
 Route::get('jogo', [JogoController::class,'create']);
 Route::post('jogo', [JogoController::class,'store']);
+
+Route::get('jogo/{id}/edit', [JogoController::class, 'edit'])->name('jogo.edit');
+Route::post('jogo/{id}/update', [JogoController::class, 'update'])->name('jogo.update');

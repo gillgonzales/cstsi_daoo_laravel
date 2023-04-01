@@ -29,6 +29,11 @@
         </td>
         <td>{{$jogo->nome}}</td>
         <td>{{$jogo->urlFoto}}</td>
+        <td>
+          <a href="{{ route('jogo.edit',$jogo->id) }}">
+            <button>Editar</button>
+          </a>
+        </td>
       </tr>
       @endforeach
     </tbody>
