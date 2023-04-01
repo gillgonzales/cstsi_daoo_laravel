@@ -20,7 +20,7 @@
         <th>Email</th>
         <th>Senha</th>
         <th>DataNasc</th>
-        <th>Descricao</th>
+        <th>Bio</th>
         <th>urlFoto</th>
         <th>HorarioInicio</th>
         <th>HorarioFim</th>
@@ -39,10 +39,15 @@
         <td>{{$jogador->email}}</td>
         <td>{{$jogador->senha}}</td>
         <td>{{$jogador->dataNasc}}</td>
-        <td>{{$jogador->descricao}}</td>
+        <td>{{$jogador->bio}}</td>
         <td>{{$jogador->urlFoto}}</td>
         <td>{{$jogador->horarioInicio}}</td>
         <td>{{$jogador->horarioFim}}</td>
+        <td>
+          <a href="{{ route('jogador.delete',$jogador->id) }}">
+            <button>Deletar</button>
+          </a>
+        </td>
       </tr>
       @endforeach
     </tbody>

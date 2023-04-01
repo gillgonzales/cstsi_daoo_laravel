@@ -40,4 +40,18 @@ class JogadorController extends Controller
     }
     return redirect('/jogadores');
   }
+
+  public function delete($id)
+  {
+    return view('jogador.delete',['jogador'=>Jogador::find($id)]);
+  }
+
+  public function remove(Request $request, $id)
+  {
+    if($request->has('confirmar'))
+      if (!Jogador::destroy($id))
+        dd("Error ao deletar jogador!!");
+
+    return redirect('/jogadores');
+  }
 }

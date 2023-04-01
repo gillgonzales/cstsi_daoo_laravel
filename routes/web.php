@@ -21,5 +21,8 @@ Route::get('jogador/{id}',[JogadorController::class,'show']);
 Route::get('jogador', [JogadorController::class,'create']);
 Route::post('jogador', [JogadorController::class,'store']);
 
+Route::get('jogador/{id}/delete', [JogadorController::class, 'delete'])->name('jogador.delete');
+Route::post('jogador/{id}/remove', [JogadorController::class, 'remove'])->name('jogador.remove');
+
 Route::get('jogo',[JogoController::class,'index']);
 Route::get('jogo/{id}',[JogoController::class,'show']);
