@@ -11,4 +11,9 @@ class Jogador extends Model
 
   protected $table = 'jogadores';
   protected $fillable = ['admin', 'nome', 'email', 'senha', 'dataNasc', 'bio', 'urlFoto', 'horarioInicio', 'horarioFim'];
+
+  public function lobby()
+  {
+    return $this->belongsTo(Lobby::class);
+  }
 }

@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Jogo extends Model
 {
   use HasFactory;
-  protected $fillable = ['nome','urlFoto'];
+  protected $fillable = ['nome', 'urlFoto'];
+
+  public function lobbys()
+  {
+    return $this->hasMany(Lobby::class);
+  }
 }
