@@ -32,7 +32,7 @@ class JogadorFactory extends Factory
       'email' => $faker->email(),
       'senha' => $faker->password(),
       'dataNasc' => $faker->dateTimeThisCentury()->format('Y-m-d'),
-      'bio' => $faker->paragraph(),
+      'bio' => $faker->text(250),
       'urlFoto' => $faker->imageUrl(640, 480, 'animals'),
       'horarioInicio' => $faker->time('H:i:s'),
       'horarioFim' => $faker->time('H:i:s'),
