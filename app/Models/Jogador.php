@@ -16,4 +16,9 @@ class Jogador extends Model
   {
     return $this->belongsTo(Lobby::class);
   }
+
+  public function jogos() 
+  {
+    return $this->belongsToMany(Jogo::class);
+  }
 }
