@@ -14,10 +14,10 @@ class Jogador extends Model
 
   public function lobby()
   {
-    return $this->belongsTo(Lobby::class);
+    return $this->belongsTo(Lobby::class, 'lobby_id', 'id');
   }
 
-  public function jogos() 
+  public function jogos()
   {
     return $this->belongsToMany(Jogo::class);
   }

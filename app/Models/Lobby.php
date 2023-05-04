@@ -14,7 +14,12 @@ class Lobby extends Model
 
   public function jogador()
   {
-    return $this->hasOne(Jogador::class, 'id', 'jogo_id');
+    return $this->hasOne(Jogador::class, 'id', 'jogador_id');
+  }
+
+  public function jogadores()
+  {
+    return $this->hasMany(Jogador::class);
   }
 
   public function jogo()

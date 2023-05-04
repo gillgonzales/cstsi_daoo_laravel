@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
     (new JogoSeeder)->run();
     \App\Models\Lobby::factory(10)->create();
     (new JogadorJogoSeeder)->run();
+    (new JogadorLobby)->run();
   }
 }
