@@ -16,6 +16,7 @@ class JogoSeeder extends Seeder
    */
   public function run(): void
   {
+    Log::channel('stderr')->info("Inserindo jogos...");
     try{
       if (Jogo::all()->count()) {
         Log::channel('stderr')->info("O banco já possui Jogos!");

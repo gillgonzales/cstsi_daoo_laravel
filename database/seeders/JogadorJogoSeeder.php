@@ -24,8 +24,6 @@ class JogadorJogoSeeder extends Seeder
       throw new Exception('Error: registrar jogadores e/ou jogos!');
     }
 
-    $now = Carbon::now()->toDateTimeString();
-
     Log::channel('stderr')->info('Relacionando jogadores e jogos...');
     
     $listJogadores->each(function ($jogador) use ($countJogos) {
@@ -41,6 +39,6 @@ class JogadorJogoSeeder extends Seeder
         $jogador->jogos()->attach($jogos);
       }
     });
-    
+    Log::channel('stderr')->info('jogador_jogo inseridos com sucesso.');
   }
 }
