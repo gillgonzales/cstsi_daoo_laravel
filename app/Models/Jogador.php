@@ -21,4 +21,9 @@ class Jogador extends Model
   {
     return $this->belongsToMany(Jogo::class);
   }
+
+  public function amizades()
+  {
+    return $this->belongsToMany(Jogador::class, 'amizades', 'jogador_id', 'amigo_id');
+  }
 }
