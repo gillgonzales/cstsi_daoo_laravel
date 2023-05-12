@@ -10,7 +10,7 @@ class Lobby extends Model
   use HasFactory;
 
   protected $table = 'lobbys';
-  protected $fillable = ['nome', 'maxJogadores', 'convidar', 'senha'];
+  protected $fillable = ['nome', 'maxJogadores', 'convidar', 'senha', 'jogador_id', 'jogo_id'];
 
   public function jogador()
   {

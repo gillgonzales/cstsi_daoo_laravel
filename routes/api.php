@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LobbyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('lobby', [LobbyController::class, 'index']);
+Route::get('lobby/{id}', [LobbyController::class, 'show']);
+
+Route::post('lobby', [LobbyController::class, 'store']);
+Route::put('lobby/{id}',[LobbyController::class, 'update']);
+Route::delete('lobby/{id}',[LobbyController::class, 'remove']);
