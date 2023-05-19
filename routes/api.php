@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LobbyController;
+use App\Http\Controllers\Api\jogoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('lobby/{id}', [LobbyController::class, 'show']);
 Route::post('lobby', [LobbyController::class, 'store']);
 Route::put('lobby/{id}',[LobbyController::class, 'update']);
 Route::delete('lobby/{id}',[LobbyController::class, 'remove']);
+
+Route::apiResource('jogos',JogoController::class);
