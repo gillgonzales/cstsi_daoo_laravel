@@ -28,3 +28,5 @@ Route::put('lobby/{id}',[LobbyController::class, 'update']);
 Route::delete('lobby/{id}',[LobbyController::class, 'remove']);
 
 Route::apiResource('jogos',JogoController::class);
+Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
+  ->name('jogos.jogadores');
