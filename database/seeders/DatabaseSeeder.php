@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
    */
   public function run(): void
   {
+    \App\Models\User::factory(3)->create();
     Log::channel('stderr')->info('Gerando jogadores...');
     \App\Models\Jogador::factory(20)->create();
     Log::channel('stderr')->info('jogadores inseridos com sucesso.');
