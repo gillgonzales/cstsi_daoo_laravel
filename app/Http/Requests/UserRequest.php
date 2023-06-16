@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
       'name.email' => 'Informe um email válido.',
       'name.unique' => 'Email ja cadastrado.',
       'password.min' => 'Senha com no mínimo 8 caracteres.',
-      'email.required' => 'Senha obtigatório.',
+      'password.required' => 'Senha obtigatório.',
     ];
   }
 }
