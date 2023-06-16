@@ -16,12 +16,14 @@ return new class extends Migration
       $table->boolean('admin')->default(false);
       $table->string('nome');
       $table->string('email');
+      $table->timestamp('email_verified_at')->nullable();
       $table->string('senha');
       $table->date('dataNasc');
       $table->string('bio');
       $table->string('urlFoto');
       $table->time('horarioInicio');
       $table->time('horarioFim');
+      $table->rememberToken();
       $table->timestamps();
     });
   }
