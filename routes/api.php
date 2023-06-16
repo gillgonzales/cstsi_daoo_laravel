@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LobbyController;
 use App\Http\Controllers\Api\jogoController;
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\UserController;
 
 /*
@@ -33,3 +34,5 @@ Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
   ->name('jogos.jogadores');
 
 Route::apiResource('users',UserController::class);
+
+Route::post('/login',[LoginController::class,'login'])->name('login');
