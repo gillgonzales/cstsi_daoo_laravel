@@ -22,12 +22,7 @@ use App\Http\Controllers\Api\UserController;
 //   return $request->user();
 // });
 
-Route::get('lobby', [LobbyController::class, 'index']);
-Route::get('lobby/{id}', [LobbyController::class, 'show']);
-
-Route::post('lobby', [LobbyController::class, 'store']);
-Route::put('lobby/{id}',[LobbyController::class, 'update']);
-Route::delete('lobby/{id}',[LobbyController::class, 'remove']);
+Route::apiResource('lobby',LobbyController::class);
 
 Route::apiResource('jogos',JogoController::class);
 Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
