@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JogoRequest;
 use Illuminate\Http\Request;
 use App\Models\jogo;
 
@@ -30,7 +31,7 @@ class JogoController extends Controller
     return response()->json($jogo);
   }
 
-  public function store(Request $request)
+  public function store(JogoRequest $request)
   {
     try {
       $createdJogo = $request->all();
@@ -48,7 +49,7 @@ class JogoController extends Controller
     }
   }
 
-  public function update(Request $request, Jogo $jogo)
+  public function update(JogoRequest $request, Jogo $jogo)
   {
     try {
       $updatedJogo = $request->all();
