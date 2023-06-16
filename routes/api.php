@@ -28,6 +28,4 @@ Route::apiResource('jogos',JogoController::class);
 Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
   ->name('jogos.jogadores');
 
-Route::apiResource('users',UserController::class);
-
 Route::post('/login',[LoginController::class,'login'])->name('login');
