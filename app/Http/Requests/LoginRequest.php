@@ -22,8 +22,8 @@ class LoginRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'email'     =>  'required | exists:users',
-      'password'  =>  'required'
+      'email'     =>  'required | exists:jogadores',
+      'senha'  =>  'required'
     ];
   }
 
@@ -32,7 +32,7 @@ class LoginRequest extends FormRequest
     return [
       'email.required'    => 'O email é obrigatório!',
       'email.exists'      => 'Usuário não cadastrado!',
-      'password.required' => 'Informe a senha!'
+      'senha.required' => 'Informe a senha!'
     ];
   }
 }
