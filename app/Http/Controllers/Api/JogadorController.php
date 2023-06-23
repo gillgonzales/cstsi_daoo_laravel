@@ -33,7 +33,7 @@ class JogadorController extends Controller
 
       $response = [
         'mensagem'=>'Jogador cadastrado com sucesso!!',
-        'user'=>$createdJogador
+        'jogador'=>$createdJogador
       ];
     }catch(\Exception $error){
       $status = 500;
