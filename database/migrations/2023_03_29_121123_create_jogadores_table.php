@@ -13,7 +13,7 @@ return new class extends Migration
   {
     Schema::create('jogadores', function (Blueprint $table) {
       $table->id();
-      $table->boolean('admin')->default(false);
+      $table->enum('role', ['admin', 'manager', 'client'])->default('client');
       $table->string('nome');
       $table->string('email');
       $table->timestamp('email_verified_at')->nullable();
