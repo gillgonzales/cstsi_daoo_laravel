@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\JogadorController;
 use App\Http\Controllers\Api\LobbyController;
 use App\Http\Controllers\Api\jogoController;
 use App\Http\Controllers\Api\LoginController;
@@ -22,10 +23,14 @@ use App\Http\Controllers\Api\UserController;
 //   return $request->user();
 // });
 
-Route::apiResource('lobby',LobbyController::class);
+Route::apiResource('jogadores', JogadorController::class)->parameters([
+  'jogadores' => 'jogador'
+]);
 
-Route::apiResource('jogos',JogoController::class);
+Route::apiResource('lobbys', LobbyController::class);
+
+Route::apiResource('jogos', JogoController::class);
 Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
   ->name('jogos.jogadores');
 
-Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
