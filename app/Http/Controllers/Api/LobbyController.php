@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\LobbyRequest;
 use App\Models\Lobby;
 
 class LobbyController extends Controller
@@ -13,20 +13,20 @@ class LobbyController extends Controller
     return response()->json(Lobby::all());
   }
 
-  public function show($id) 
+  public function show(Lobby $lobby) 
   {
     try {
-      return response()->json(Lobby::findOrFail($id));            
+      return response()->json($lobby);           
     } catch (\Exception $error) {
       $responseError = [
-        'Erro' => "Produto não encontrado.",
+        'Erro' => "lobby não encontrado.",
         'Excption' => $error->getMessage(),
       ];
       return response()->json($responseError, 404);
     }
   }
 
-  public function store(Request $request) 
+  public function store(LobbyRequest $request) 
   {
     try {
       $newLobby = $request->all();
@@ -44,35 +44,34 @@ class LobbyController extends Controller
     }
   }
 
-  public function update(Request $request, $id)
+  public function update(LobbyRequest $request, Lobby $lobby)
   {
     try {
-      $newLobby = $request->all();
-      $updatedLobby = Lobby::findOrFail($id);
-      $updatedLobby->update($newLobby);
+      $updatedLobby = $request->all();
+      $lobby->update($updatedLobby);
       return response()->json([
-        'Message'=>"Produto atualizado com sucesso",
-        'Produto'=>$updatedLobby,
+        'Message'=>"Lobby atualizado com sucesso",
+        'Lobby'=>$updatedLobby,
       ]);
     } catch (\Exception $error) {
       $responseError = [
-        'Message'=>"Erro ao inserir o Produto!",
+        'Message'=>"Erro ao atualizar Lobby!",
         'Exception'=>$error->getMessage(),
       ];
       return response()->json($responseError, 500);
     }
   }
 
-  public function remove($id)
+  public function destroy(Lobby $lobby)
   {
     try {
-      Lobby::findOrFail($id)->delete();
+      $lobby->delete();
       return response()->json([
-        'Message'=>"Lobby id:$id removido!",
+        'Message'=>"Lobby id: $lobby->id removido!",
       ]);
     } catch (\Exception $error) {
       $responseError = [
-        'Message'=>"O lobby de id: $id não foi encontrado!",
+        'Message'=>"O lobby de id: $lobby->id não foi encontrado!",
         'Exception'=>$error->getMessage(),
       ];
       return response()->json($responseError, 404);
