@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
     Log::channel('stderr')->info('Gerando jogadores...');
     \App\Models\Jogador::factory(20)->create();
     Log::channel('stderr')->info('jogadores inseridos com sucesso.');
+    Log::channel('stderr')->info('Gerando jogadores com papéis...');
+    (new JogadorRoleSeeder)->run();
     (new AmizadeSeeder)->run();
     (new JogoSeeder)->run();
     Log::channel('stderr')->info('Gerando lobbys...');
