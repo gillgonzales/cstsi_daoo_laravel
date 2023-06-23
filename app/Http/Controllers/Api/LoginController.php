@@ -17,7 +17,8 @@ class LoginController extends Controller
         throw New Exception('Senha incorreta.');
       }
 
-      $token = $jogador->createToken($request->email)->plainTextToken;
+      $ability[0] = $jogador->role;
+      $token = $jogador->createToken($request->email, $ability)->plainTextToken;
       return response()->json(['token'=>$token]);
     } catch (\Exception $error) {
       return response()->json([
