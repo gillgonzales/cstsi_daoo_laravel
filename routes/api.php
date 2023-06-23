@@ -1,12 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\JogadorController;
 use App\Http\Controllers\Api\LobbyController;
 use App\Http\Controllers\Api\jogoController;
 use App\Http\Controllers\Api\LoginController;
-use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +21,28 @@ use App\Http\Controllers\Api\UserController;
 //   return $request->user();
 // });
 
-Route::apiResource('jogadores', JogadorController::class)->parameters([
-  'jogadores' => 'jogador'
-]);
-
-Route::apiResource('lobbys', LobbyController::class)->middleware('auth:sanctum');
-
-Route::apiResource('jogos', JogoController::class)->middleware('auth:sanctum');
-Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])->middleware('auth:sanctum');
-
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::middleware('auth:sanctum')->group(function () 
+{
+  Route::apiResource('jogadores', JogadorController::class)->parameters([
+    'jogadores' => 'jogador'
+  ])->middleware('ability:client,manager,admin');
+
+  Route::apiResource('lobbys', LobbyController::class)
+    ->middleware('ability:manager,admin');
+
+  Route::get('lobbys', [LobbyController::class, 'index'])
+    ->middleware('ability:client,manager,admin');
+
+  Route::apiResource('jogos', JogoController::class)
+    ->middleware('ability:admin');
+
+  Route::get('jogos', [jogoController::class, 'index'])
+    ->middleware('ability:client,manager,admin');
+
+  Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
+    ->middleware('ability:admin');
+});
+
+Route::post('jogadores', [JogadorController::class, 'store']);
