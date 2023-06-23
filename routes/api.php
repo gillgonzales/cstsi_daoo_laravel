@@ -27,10 +27,9 @@ Route::apiResource('jogadores', JogadorController::class)->parameters([
   'jogadores' => 'jogador'
 ]);
 
-Route::apiResource('lobbys', LobbyController::class);
+Route::apiResource('lobbys', LobbyController::class)->middleware('auth:sanctum');
 
-Route::apiResource('jogos', JogoController::class);
-Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
-  ->name('jogos.jogadores');
+Route::apiResource('jogos', JogoController::class)->middleware('auth:sanctum');
+Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])->middleware('auth:sanctum');
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
