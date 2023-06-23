@@ -12,7 +12,7 @@ class Jogador extends Authenticatable
   use HasApiTokens, HasFactory, Notifiable;
 
   protected $table = 'jogadores';
-  protected $fillable = ['admin', 'nome', 'email', 'senha', 'dataNasc', 'bio', 'urlFoto', 'horarioInicio', 'horarioFim'];
+  protected $fillable = ['role', 'nome', 'email', 'senha', 'dataNasc', 'bio', 'urlFoto', 'horarioInicio', 'horarioFim'];
 
   protected $hidden = ['senha', 'remember_token',];
 
