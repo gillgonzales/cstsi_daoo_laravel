@@ -21,25 +21,23 @@ use App\Http\Controllers\Api\LoginController;
 //   return $request->user();
 // });
 
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () 
 {
   Route::apiResource('jogadores', JogadorController::class)->parameters([
     'jogadores' => 'jogador'
-  ])->middleware('ability:client,manager,admin');
+  ])->middleware('ability:client,admin');
 
   Route::apiResource('lobbys', LobbyController::class)
     ->middleware('ability:manager,admin');
 
-  Route::get('lobbys', [LobbyController::class, 'index'])
-    ->middleware('ability:client,manager,admin');
+  Route::get('lobbys', [LobbyController::class, 'index']);
 
   Route::apiResource('jogos', JogoController::class)
     ->middleware('ability:admin');
 
-  Route::get('jogos', [jogoController::class, 'index'])
-    ->middleware('ability:client,manager,admin');
+  Route::get('jogos', [jogoController::class, 'index']);
 
   Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
     ->middleware('ability:admin');
