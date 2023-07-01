@@ -1,0 +1,161 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Lobbys",
+    "dateExported": "2023-07-01T23:36:46.334Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7f2f6c87-d071-44e5-bb43-f80b6a9a8e6e",
+            "colId": "fc44bd03-4993-4b00-8f83-95996b5035ad",
+            "containerId": "",
+            "name": "create",
+            "url": "localhost:8000/api/lobbys",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-22T16:21:37.621Z",
+            "modified": "2023-06-23T14:32:25.250Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "personalizada"
+                    },
+                    {
+                        "name": "maxJogadores",
+                        "value": "10"
+                    },
+                    {
+                        "name": "convidar",
+                        "value": "1"
+                    },
+                    {
+                        "name": "senha",
+                        "value": "\"\""
+                    },
+                    {
+                        "name": "jogador_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "jogo_id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b2cf0604-25a7-47c7-a4a4-722069f0cfd4",
+            "colId": "fc44bd03-4993-4b00-8f83-95996b5035ad",
+            "containerId": "",
+            "name": "read",
+            "url": "localhost:8000/api/lobbys/",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2023-06-22T16:26:21.446Z",
+            "modified": "2023-06-23T14:32:35.040Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer "
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9d716dfb-8400-4700-b486-420e0e674404",
+            "colId": "fc44bd03-4993-4b00-8f83-95996b5035ad",
+            "containerId": "",
+            "name": "update",
+            "url": "localhost:8000/api/lobbys/1",
+            "method": "PUT",
+            "sortNum": 13437.5,
+            "created": "2023-06-22T16:26:59.624Z",
+            "modified": "2023-06-23T14:33:01.033Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "5x5"
+                    },
+                    {
+                        "name": "maxJogadores",
+                        "value": "10"
+                    },
+                    {
+                        "name": "convidar",
+                        "value": "0"
+                    },
+                    {
+                        "name": "senha",
+                        "value": "senha5"
+                    },
+                    {
+                        "name": "jogador_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "jogo_id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "eda965c9-1455-4f63-8202-c76f1efee4a5",
+            "colId": "fc44bd03-4993-4b00-8f83-95996b5035ad",
+            "containerId": "",
+            "name": "delete",
+            "url": "localhost:8000/api/lobbys/1",
+            "method": "DELETE",
+            "sortNum": 14375,
+            "created": "2023-06-22T16:43:33.254Z",
+            "modified": "2023-06-23T14:33:13.088Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

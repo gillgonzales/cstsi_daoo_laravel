@@ -1,0 +1,165 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Jogadores",
+    "dateExported": "2023-07-01T23:36:28.390Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b39868c8-9ee2-48f7-a23b-3fe6c7b7b81b",
+            "colId": "9fe06f0c-16f3-49a4-a49a-8e968f0bf14a",
+            "containerId": "",
+            "name": "create",
+            "url": "localhost:8000/api/jogadores",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2023-06-22T14:00:15.600Z",
+            "modified": "2023-06-22T14:12:08.064Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "Ana"
+                    },
+                    {
+                        "name": "email",
+                        "value": "ana@email.com"
+                    },
+                    {
+                        "name": "senha",
+                        "value": "teste123"
+                    },
+                    {
+                        "name": "dataNasc",
+                        "value": "2000-01-01"
+                    },
+                    {
+                        "name": "bio",
+                        "value": "uma Ana"
+                    },
+                    {
+                        "name": "urlFoto",
+                        "value": "https://ana-png.com"
+                    },
+                    {
+                        "name": "horarioInicio",
+                        "value": "21:00"
+                    },
+                    {
+                        "name": "horarioFim",
+                        "value": "23:00"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "016015cb-2a26-474c-9e0f-113e622fbd85",
+            "colId": "9fe06f0c-16f3-49a4-a49a-8e968f0bf14a",
+            "containerId": "",
+            "name": "read",
+            "url": "localhost:8000/api/jogadores/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-22T13:53:26.106Z",
+            "modified": "2023-06-23T16:06:11.050Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 2|EVkifgt6sAuUJO8SSom6k0XrFExRIJ4NIvQdOxEU"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "51ae344f-64ba-4f2f-8573-fc71026286e0",
+            "colId": "9fe06f0c-16f3-49a4-a49a-8e968f0bf14a",
+            "containerId": "",
+            "name": "update",
+            "url": "localhost:8000/api/jogadores/1",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-06-22T14:10:01.903Z",
+            "modified": "2023-06-23T12:54:36.526Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "Ana silva"
+                    },
+                    {
+                        "name": "email",
+                        "value": "anasilva@email.com"
+                    },
+                    {
+                        "name": "senha",
+                        "value": "teste321"
+                    },
+                    {
+                        "name": "dataNasc",
+                        "value": "2000-01-01"
+                    },
+                    {
+                        "name": "bio",
+                        "value": "uma Ana silva"
+                    },
+                    {
+                        "name": "urlFoto",
+                        "value": "https://anasilva-png.com"
+                    },
+                    {
+                        "name": "horarioInicio",
+                        "value": "21:30"
+                    },
+                    {
+                        "name": "horarioFim",
+                        "value": "23:10"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "7124959f-efa7-4405-8b06-c2655764c242",
+            "colId": "9fe06f0c-16f3-49a4-a49a-8e968f0bf14a",
+            "containerId": "",
+            "name": "delete",
+            "url": "localhost:8000/api/jogadores/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-06-22T16:29:44.126Z",
+            "modified": "2023-06-22T16:39:41.949Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
