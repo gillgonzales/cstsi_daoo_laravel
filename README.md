@@ -22,3 +22,74 @@ Na pasta 'tests/api' é possivel encontrar os arquivos  com as requisoções HTT
 A rota de login irá devolver um token para o usuário com sua respectiva habilidade, este token é necessário no header das demais requisições. 
 O arquivo 'login.json' da pasta 'tests/api' representa requisições HTTP para cada tipo de usuário, ou seja, cada uma retorna um token com uma habilidade diferente.
 
+## Api
+Realizar registro
+```
+POST /api/jogadores
+```
+
+Realizar login
+```
+POST /api/login
+```
+Todas as demais rotas necessitam do token de autenticação.
+### Usuários
+```
+# Obter lista de jogadores
+GET /api/jogadores
+
+# Criar um jogador
+POST /api/jogadores
+
+# Obter informações de um jogador específico
+GET /api/jogadores/{jogador}
+
+# Atualizar informações de um jogador específico
+PUT /api/jogadores/{jogador}
+
+# Excluir um jogador específico
+DELETE /api/jogadores/{jogador}
+```
+Obs: qualquer usuário autenticado
+
+### Lobbys
+```
+# Obter lista de lobbys
+GET /api/lobbys
+```
+Obs: qualquer usuário autenticado
+```
+
+# Criar um lobby
+POST /api/lobbys
+
+# Obter informações de um lobby específico
+GET /api/lobbys/{lobby}
+
+# Atualizar informações de um lobby específico
+PUT /api/lobbys/{lobby}
+
+# Excluir um lobby específico
+DELETE /api/lobbys/{lobby}
+```
+Obs: somente usuários 'manager' ou 'admin'.
+### Jogos
+```
+Obter lista de jogos
+GET /api/jogos
+```
+Obs: qualquer usuário autenticado
+```
+Criar um jogo
+POST /api/jogos
+
+Obter informações de um jogo específico
+GET /api/jogos/{jogo}
+
+Atualizar informações de um jogo específico
+PUT /api/jogos/{jogo}
+
+Excluir um jogo específico
+DELETE /api/jogos/{jogo}
+```
+Obs: somente usuários 'admin'.
