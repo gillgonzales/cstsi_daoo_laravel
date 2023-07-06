@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\JogadorController;
 use App\Http\Controllers\Api\LobbyController;
-use App\Http\Controllers\Api\jogoController;
+use App\Http\Controllers\Api\JogoController;
 use App\Http\Controllers\Api\LoginController;
 
 /*
@@ -23,7 +23,7 @@ use App\Http\Controllers\Api\LoginController;
 
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::middleware('auth:sanctum')->group(function () 
+Route::middleware('auth:sanctum')->group(function ()
 {
   Route::apiResource('jogadores', JogadorController::class)->parameters([
     'jogadores' => 'jogador'
@@ -37,7 +37,7 @@ Route::middleware('auth:sanctum')->group(function ()
   Route::apiResource('jogos', JogoController::class)
     ->middleware('ability:admin');
 
-  Route::get('jogos', [jogoController::class, 'index']);
+  Route::get('jogos', [JogoController::class, 'index']);
 
   Route::get('jogos/{jogo}/jogadores', [JogoController::class, 'jogadores'])
     ->middleware('ability:admin');

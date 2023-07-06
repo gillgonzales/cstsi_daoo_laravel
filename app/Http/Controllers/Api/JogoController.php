@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JogoRequest;
 use Illuminate\Http\Request;
-use App\Models\jogo;
+use App\Models\Jogo;
 
 class JogoController extends Controller
 {
