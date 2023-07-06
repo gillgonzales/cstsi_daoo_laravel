@@ -13,7 +13,7 @@ return new class extends Migration
   {
     Schema::table('jogadores', function (Blueprint $table) {
       $table->unsignedBigInteger('lobby_id')->nullable();
-        //deveria usar cascadeOnDelete?
+        //deveria usar cascadeOnDelete?Não pois removeria os jogadores
       $table->foreign('lobby_id')->references('id')->on('lobbys');
     });
   }
