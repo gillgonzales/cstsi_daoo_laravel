@@ -5,18 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LobbyRequest;
 use App\Models\Lobby;
+use Illuminate\Database\QueryException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LobbyController extends Controller
 {
-  public function index() 
+  public function index()
   {
     return response()->json(Lobby::all());
   }
 
-  public function show(Lobby $lobby) 
+  public function show(Lobby $lobby)
   {
     try {
-      return response()->json($lobby);           
+      return response()->json($lobby);
     } catch (\Exception $error) {
       $responseError = [
         'Erro' => "lobby não encontrado.",
@@ -26,7 +28,7 @@ class LobbyController extends Controller
     }
   }
 
-  public function store(LobbyRequest $request) 
+  public function store(LobbyRequest $request)
   {
     try {
       $newLobby = $request->all();
@@ -70,10 +72,18 @@ class LobbyController extends Controller
         'Message'=>"Lobby id: $lobby->id removido!",
       ]);
     } catch (\Exception $error) {
+    //Pode gerar exceção ao deletar um lobby sem antes
+    //remover o jogador que pertence a ele
+    $idJogador=$lobby->load('jogador')->jogador->id;
       $responseError = [
-        'Message'=>"O lobby de id: $lobby->id não foi encontrado!",
+        'Message'=>"Remover Jogadore de id: $idJogador relacionado primeiro!",
         'Exception'=>$error->getMessage(),
       ];
+      //Exceção capturada é do tipo QueryException
+      if($error instanceof QueryException)
+       $responseError['DebugTrace'] = $error->getTrace();
+
+
       return response()->json($responseError, 404);
     }
   }

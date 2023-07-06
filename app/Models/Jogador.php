@@ -17,7 +17,9 @@ class Jogador extends Authenticatable
   protected $hidden = ['senha', 'remember_token',];
 
   public function lobby()
-  {
+  {//O Jogador pertence ao lob ou ele possui vários lobs?
+    //desta forma, eu só posso deletar um lob removendo
+    // o jogador antes, já que a migration nao define cascadeOnDelete
     return $this->belongsTo(Lobby::class, 'lobby_id', 'id');
   }
 
