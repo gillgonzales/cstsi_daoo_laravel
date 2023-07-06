@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LobbyRequest;
 use App\Models\Lobby;
 use Illuminate\Database\QueryException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LobbyController extends Controller
 {
@@ -73,11 +72,14 @@ class LobbyController extends Controller
       ]);
     } catch (\Exception $error) {
     //Pode gerar exceção ao deletar um lobby sem antes
-    //remover o jogador que pertence a ele
-    $idJogador=$lobby->load('jogador')->jogador->id;
+    //remover os jogadores que pertencem a ele
+    $idsJogadores = $lobby->load('jogadores')->jogadores->map(fn($j)=>$j->id);
+    //mesmo para os jogos relacionados
+
       $responseError = [
-        'Message'=>"Remover Jogadore de id: $idJogador relacionado primeiro!",
+        'Message'=>"Desvincular Jogadores de ids: [".implode(', ',$idsJogadores->all())."] participantes deste lobby!",
         'Exception'=>$error->getMessage(),
+        'jogadoresParticipantes'=>$idsJogadores
       ];
       //Exceção capturada é do tipo QueryException
       if($error instanceof QueryException)
